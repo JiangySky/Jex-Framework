@@ -137,17 +137,6 @@ typedef struct BezierPoints {
 
 #define isNilColor4F(_color)					color4FEqual(_color, nilColor4F)
 
-#ifndef SWAP
-#define SWAP(_a, _b)							__typeof__(_a) temp; temp = _a; _a = _b; _b = temp
-#define CLAMP(_value, _lower, _upper)			(_value = MIN(MAX(_lower, _value), _upper))
-#endif
-#ifndef VALUE_BETWEEN_OO
-#define VALUE_BETWEEN_OO(_value, _lower, _upper)		(_value > _lower && _value < _upper)
-#define VALUE_BETWEEN_OC(_value, _lower, _upper)		(_value > _lower && _value <= _upper)
-#define VALUE_BETWEEN_CO(_value, _lower, _upper)		(_value >= _lower && _value < _upper)
-#define VALUE_BETWEEN_CC(_value, _lower, _upper)		(_value >= _lower && _value <= _upper)
-#endif
-
 #define DEFAULT_LINE_WIDTH				1
 #define DEFAULT_LINE_CAP				kCGLineCapButt
 #define DEFAULT_LINE_JOIN				kCGLineJoinMiter
@@ -163,7 +152,6 @@ typedef struct BezierPoints {
 #define pString(_string)				CGPointFromString(_string)
 #define sRect(_rect)					NSStringFromCGRect(_rect)
 #define rString(_string)				CGRectFromString(_string)
-
 
 #define DISTANCE_BETWEEN_POINT(_startPoint, _endPoint) \
 sqrtf(powf(_startPoint.x - _endPoint.x, 2) + powf(_startPoint.y - _endPoint.y, 2))
